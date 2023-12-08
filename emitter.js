@@ -9,13 +9,21 @@ class Emitter {
     this.particles.push(particle);
   }
 
-  applyForce(force) {
+  applyGravity() {
     for (let particle of this.particles) {
-      particle.applyForce(force);
+      particle.applyGravity();
+    }
+  }
+
+  applyBounce() {
+    for (let particle of this.particles) {
+      particle.applyBounce();
     }
   }
 
   run() {
+    this.applyGravity();
+    this.applyBounce();
     for (let particle of this.particles) {
       particle.update();
       particle.display();

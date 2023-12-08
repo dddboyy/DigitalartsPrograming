@@ -18,10 +18,8 @@ function draw() {
   emitter.addParticle();
   emitter.addParticle();
 
-  let gravity = createVector(0, 0.1);
-  emitter.applyForce(gravity);
-  emitter.applyRepeller(repeller);
-  emitter.applyAttractor(att);
+  emitter.applyGravity();
+  emitter.applyBounce();
   emitter.run();
 
   repeller.show();
