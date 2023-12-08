@@ -57,7 +57,8 @@ class Particle {
   }
 
   display() {
-    fill(255, 0, 0);
+    // fill 함수에 선택된 색상을 전달
+    fill(colorPicker.color());
     noStroke();
     ellipse(this.position.x, this.position.y, 10, 10);
   }

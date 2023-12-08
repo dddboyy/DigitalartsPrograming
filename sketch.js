@@ -4,27 +4,27 @@ let emitter;
 let repeller;
 let att;
 let isParticleActive = false;
-let hueSlider;
+let colorPicker;
+
 
 function setup() {
   createCanvas(400, 400);
-
-  // 슬라이더 생성 및 설정
-  hueSlider = createSlider(0, 360, 0, 1);
-  hueSlider.position(10, height + 10);
-
   emitter = new Emitter();
   repeller = new Repeller(width / 2, height / 2);
   att = new Attractor(width / 2, height / 2);
+
+    // 파티클 색상을 선택할 수 있는 색상 선택기 생성
+    colorPicker = createColorPicker('#ff0000'); // 초기 색상은 빨간색
+    colorPicker.position(10, height + 10);
 }
 
 function draw() {
-  background(hueSlider.value(), 0, 100);
+  background(0);
 
   repeller.move(0.5);
 
   if (isParticleActive) {
-    emitter.addParticle(mouseX, mouseY, hueSlider.value());
+    emitter.addParticle(mouseX, mouseY);
   }
 
   emitter.run();
