@@ -1,11 +1,10 @@
 class Particle {
   constructor(x, y) {
     this.position = createVector(x, y);
-    this.velocity = createVector(random(-1, 1), random(-1, 1));
+    this.velocity = createVector(random(-0.5, 0.5), random(-0.5, 0.5)); // 더 작은 범위로 수정
     this.acceleration = createVector(0, 0);
     this.mass = 1;
     this.gravity = createVector(0, 0.1);
-    this.bounce = -0.7;
   }
 
   update() {

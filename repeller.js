@@ -2,6 +2,8 @@ class Repeller {
   constructor(x, y) {
     this.position = createVector(x, y);
     this.strength = -1000;
+    this.radius = 20;
+    this.vertices = 6; // 다각형의 꼭지점 개수
   }
 
   repel(particle) {
@@ -22,8 +24,15 @@ class Repeller {
   }
 
   show() {
-    fill(255, 0, 0);
+    fill(255); // 흰색으로 설정
     noStroke();
-    ellipse(this.position.x, this.position.y, 20, 20);
+    beginShape();
+    for (let i = 0; i < this.vertices; i++) {
+      let angle = map(i, 0, this.vertices, 0, TWO_PI);
+      let x = this.position.x + this.radius * cos(angle);
+      let y = this.position.y + this.radius * sin(angle);
+      vertex(x, y);
+    }
+    endShape(CLOSE);
   }
 }

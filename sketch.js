@@ -6,8 +6,8 @@ let isParticleActive = false;
 function setup() {
   createCanvas(400, 400);
   emitter = new Emitter();
-  repeller = new Repeller(width / 2, 350);
-  att = new Attractor(20, height / 2);
+  repeller = new Repeller(width / 2, height / 2);
+  att = new Attractor(width / 2, height / 2);
 }
 
 function draw() {
@@ -19,7 +19,7 @@ function draw() {
     emitter.addParticle(mouseX, mouseY);
   }
 
-  emitter.run(); // 이 부분을 수정하여 계속해서 파티클을 화면에 유지
+  emitter.run();
 
   repeller.show();
   att.show();
