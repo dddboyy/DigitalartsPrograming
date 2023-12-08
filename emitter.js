@@ -1,11 +1,10 @@
 class Emitter {
-  constructor(x, y) {
-    this.position = createVector(x, y);
+  constructor() {
     this.particles = [];
   }
 
-  addParticle() {
-    let particle = new Particle(this.position.x, this.position.y);
+  addParticle(x, y) {
+    let particle = new Particle(x, y);
     this.particles.push(particle);
   }
 
@@ -26,11 +25,6 @@ class Emitter {
     this.applyBounce();
     for (let particle of this.particles) {
       particle.update();
-    }
-  }
-
-  show() {
-    for (let particle of this.particles) {
       particle.display();
     }
   }

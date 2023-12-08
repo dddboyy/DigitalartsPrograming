@@ -14,7 +14,6 @@ class Repeller {
     return force;
   }
 
-  // 수정된 부분: 적용할 힘을 Particle 클래스의 메서드로 변경
   move(strength) {
     for (let particle of emitter.particles) {
       let force = this.repel(particle);

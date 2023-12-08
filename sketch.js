@@ -1,10 +1,11 @@
 let emitter;
 let repeller;
 let att;
+let isParticleActive = false;
 
 function setup() {
   createCanvas(400, 400);
-  emitter = new Emitter(width / 2, height / 2);
+  emitter = new Emitter();
   repeller = new Repeller(width / 2, 350);
   att = new Attractor(20, height / 2);
 }
@@ -14,16 +15,16 @@ function draw() {
 
   repeller.move(0.5);
 
-  emitter.addParticle();
-  emitter.addParticle();
-  emitter.addParticle();
+  if (isParticleActive) {
+    emitter.addParticle(mouseX, mouseY);
+  }
 
-  emitter.applyGravity();
-  emitter.applyBounce();
-  emitter.run();
+  emitter.run(); // 이 부분을 수정하여 계속해서 파티클을 화면에 유지
 
   repeller.show();
   att.show();
+}
 
-  emitter.show();
+function mouseClicked() {
+  isParticleActive = !isParticleActive;
 }
