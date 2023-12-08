@@ -26,6 +26,11 @@ class Emitter {
     this.applyBounce();
     for (let particle of this.particles) {
       particle.update();
+    }
+  }
+
+  show() {
+    for (let particle of this.particles) {
       particle.display();
     }
   }

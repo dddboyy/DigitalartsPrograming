@@ -10,7 +10,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(0);
 
   repeller.move(0.5);
 
@@ -24,4 +24,6 @@ function draw() {
 
   repeller.show();
   att.show();
+
+  emitter.show();
 }

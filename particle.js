@@ -3,7 +3,7 @@ class Particle {
     this.position = createVector(x, y);
     this.velocity = createVector(random(-1, 1), random(-1, 1));
     this.acceleration = createVector(0, 0);
-    this.mass = 1; // 입자의 질량
+    this.mass = 1;
     this.gravity = createVector(0, 0.1);
     this.bounce = -0.7;
   }
@@ -32,7 +32,7 @@ class Particle {
   }
 
   display() {
-    fill(0);
+    fill(255, 0, 0);
     noStroke();
     ellipse(this.position.x, this.position.y, 10, 10);
   }
